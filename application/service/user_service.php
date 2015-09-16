@@ -34,8 +34,9 @@ class User_service extends MY_Service
      */
     public function register_action($name, $phone, $pwd, $sex, $school)
     {
+        $user = $this->user_model->user_register($name, $phone, $pwd, $sex, $school);
         //注册成功，设置 session
-        if ( !empty($user = $this->user_model->user_register($name, $phone, $pwd, $sex, $school)))
+        if ( !empty($user))
         {
             //$user = $this->user_model->get_user_base_id($user_id);
             //邮箱注册，验证邮箱
